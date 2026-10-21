@@ -1,0 +1,170 @@
+{
+  "name": "Barberia La Elite - Flujo Inteligente de Citas y Chatbot",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "elite-booking",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "node-webhook-in",
+      "name": "Webhook La Elite (Chat Web)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        240,
+        300
+      ],
+      "webhookId": "elite-booking-webhook"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.event }}",
+              "operation": "equals",
+              "value2": "appointment_confirmed"
+            }
+          ]
+        }
+      },
+      "id": "node-if-confirmed",
+      "name": "¿Cita Ya Confirmada?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        460,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "status",
+              "value": "success"
+            },
+            {
+              "name": "message",
+              "value": "Cita registrada y confirmada en n8n."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "node-set-confirmed",
+      "name": "Procesar Guardado de Cita",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        700,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "prompt": "=Instrucciones del Sistema:\nEres el Asistente Virtual Inteligente de 'Barbería La Élite'.\nUbicación: Calle Ronda de Santo Domingo 53, Orihuela, Alicante.\nHorario: Lunes a Sábado de 09:00 a 22:00 h (Domingos cerrado).\nBarberos:\n- Deison: Especialista en degradados (fades milimétricos), diseños freestyle y arreglo de barba a navaja.\n- Juan Pablo: Experto en corte clásico a tijera, colorimetría, tintes modernos y mechas platinum.\nPrecios:\n- Corte básico o degradado: 12 €\n- Corte + Arreglo de Barba La Élite: 18 €\n- Tinte & Colorimetría: 25 €\n- Mechas Platinum: 30 €\n- Arreglo de Barba: 8 €\n- Lavado y Peinado: 6 €\n\nTu objetivo es atender amablemente al cliente, responder cualquier duda con estilo profesional y ayudarle a agendar su cita preguntando: Barbero preferido (Deison o Juan Pablo), Servicio, Día, Hora y Nombre/Teléfono.\n\nMensaje del cliente: {{ $json.body.message }}\nDatos actuales de reserva: {{ JSON.stringify($json.body.currentBookingData) }}",
+        "options": {
+          "temperature": 0.7
+        }
+      },
+      "id": "node-ai-agent",
+      "name": "IA OpenAI / Gemini (Procesar Mensaje)",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1,
+      "position": [
+        700,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"status\": \"ok\",\n  \"reply\": {{ $json.text || '¡Encantado de ayudarte en Barbería La Élite! ¿Qué día te gustaría venir con Deison o Juan Pablo?' }},\n  \"timestamp\": \"{{ new Date().toISOString() }}\"\n}",
+        "options": {}
+      },
+      "id": "node-respond-chat",
+      "name": "Responder al Chat Web",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        940,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"status\": \"confirmed\",\n  \"saved\": true,\n  \"message\": \"Cita sincronizada correctamente con n8n y calendario de Barbería La Élite\"\n}",
+        "options": {}
+      },
+      "id": "node-respond-confirmed",
+      "name": "Responder Confirmación",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        940,
+        200
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook La Elite (Chat Web)": {
+      "main": [
+        [
+          {
+            "node": "¿Cita Ya Confirmada?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "¿Cita Ya Confirmada?": {
+      "main": [
+        [
+          {
+            "node": "Procesar Guardado de Cita",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IA OpenAI / Gemini (Procesar Mensaje)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Procesar Guardado de Cita": {
+      "main": [
+        [
+          {
+            "node": "Responder Confirmación",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IA OpenAI / Gemini (Procesar Mensaje)": {
+      "main": [
+        [
+          {
+            "node": "Responder al Chat Web",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {}
+}

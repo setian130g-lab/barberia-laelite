@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Barbero | Barbería La Élite</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon Oficial -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#080c14] text-slate-200 min-h-screen selection:bg-amber-500 selection:text-black">
+
+  <!-- Top Bar del Panel -->
+  <header class="bg-slate-950/90 border-b border-slate-800 sticky top-0 z-30 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo y Rol -->
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-12 h-12 rounded-full overflow-hidden border-2 border-amber-500/50 shadow-md shadow-amber-500/20 bg-black flex-shrink-0">
+          <img 
+            src="logo.png" 
+            alt="Logo Barbería La Élite" 
+            class="w-full h-full object-cover"
+          />
+        </a>
+        <div>
+          <span class="block text-xs uppercase tracking-widest text-amber-400 font-bold">Portal Barbería La Élite</span>
+          <h1 class="text-sm sm:text-base font-extrabold text-white font-heading">
+            Agenda de <span id="barber-name-display" class="gold-gradient-text">Barbero</span>
+          </h1>
+        </div>
+      </div>
+
+      <!-- Perfil Activo y Acciones -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        <!-- Avatar y Nombre -->
+        <div class="flex items-center gap-3 pl-3 pr-2 py-1.5 rounded-2xl bg-slate-900 border border-slate-800">
+          <img 
+            id="barber-avatar-display" 
+            src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=120&q=80" 
+            alt="Avatar" 
+            class="w-8 h-8 rounded-full object-cover border border-amber-500/50"
+          />
+          <div class="hidden sm:block text-left">
+            <span id="barber-role-display" class="block text-[10px] text-slate-400">Especialista</span>
+          </div>
+        </div>
+
+        <!-- Botón Ver Web -->
+        <a href="index.html" target="_blank" class="hidden sm:flex text-xs bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 px-3 py-2 rounded-xl items-center gap-1.5 transition-colors">
+          <span>🌐 Ver Web</span>
+        </a>
+
+        <!-- Botón Logout -->
+        <button onclick="logoutBarber()" class="text-xs bg-red-950/40 hover:bg-red-900/60 border border-red-500/30 text-red-300 px-3 py-2 rounded-xl transition-all flex items-center gap-1.5" title="Cerrar Sesión">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+          <span class="hidden sm:inline">Salir</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    
+    <!-- Tarjetas de Métricas -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
+        <span class="text-xs text-slate-400 font-medium block">Citas para Hoy</span>
+        <div class="flex items-baseline justify-between mt-2">
+          <span id="stat-today-count" class="text-3xl font-extrabold text-amber-400 font-heading">0</span>
+          <span class="text-xs text-amber-500/80">📅 Hoy</span>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
+        <span class="text-xs text-slate-400 font-medium block">Pendientes de Confirmar</span>
+        <div class="flex items-baseline justify-between mt-2">
+          <span id="stat-pending-count" class="text-3xl font-extrabold text-yellow-400 font-heading">0</span>
+          <span class="text-xs text-yellow-500/80">⏳ Pendientes</span>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
+        <span class="text-xs text-slate-400 font-medium block">Clientes Atendidos</span>
+        <div class="flex items-baseline justify-between mt-2">
+          <span id="stat-completed-count" class="text-3xl font-extrabold text-emerald-400 font-heading">0</span>
+          <span class="text-xs text-emerald-500/80">✓ Realizados</span>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
+        <span class="text-xs text-slate-400 font-medium block">Estimación Ingresos Hoy</span>
+        <div class="flex items-baseline justify-between mt-2">
+          <span id="stat-today-revenue" class="text-3xl font-extrabold text-amber-300 font-heading">0 €</span>
+          <span class="text-xs text-emerald-400">💰 Facturación</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de estado n8n -->
+    <div class="flex items-center justify-between bg-slate-950/70 border border-violet-500/20 px-4 py-2.5 rounded-2xl text-xs">
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-violet-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+        <span class="text-slate-400 font-medium">n8n Automatización:</span>
+        <div id="n8n-sync-status" class="flex items-center gap-1.5 text-slate-500">
+          <span class="w-2 h-2 rounded-full bg-slate-600"></span>
+          <span>Iniciando sincronización...</span>
+        </div>
+      </div>
+      <button id="n8n-sync-btn"
+        class="flex items-center gap-1.5 bg-violet-900/40 hover:bg-violet-800/60 text-violet-300 border border-violet-500/30 px-3 py-1.5 rounded-xl transition-all font-medium disabled:opacity-50">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+        </svg>
+        <span class="text-xs">Sincronizar n8n</span>
+      </button>
+    </div>
+
+    <!-- Barra de Filtros y Acción Nueva Cita -->
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+      <!-- Filtros -->
+      <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+        <button data-filter="all" class="filter-btn px-3 py-1.5 rounded-xl text-xs bg-amber-500 text-slate-950 font-bold transition-all">
+          Todas
+        </button>
+        <button data-filter="today" class="filter-btn px-3 py-1.5 rounded-xl text-xs bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+          Hoy
+        </button>
+        <button data-filter="pending" class="filter-btn px-3 py-1.5 rounded-xl text-xs bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+          Pendientes
+        </button>
+        <button data-filter="confirmed" class="filter-btn px-3 py-1.5 rounded-xl text-xs bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+          Confirmadas
+        </button>
+        <button data-filter="completed" class="filter-btn px-3 py-1.5 rounded-xl text-xs bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">
+          Completadas
+        </button>
+      </div>
+
+      <!-- Botón Agregar Cita Manual -->
+      <button id="open-manual-apt-btn" class="btn-gold px-4 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-lg">
+        <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+        <span>+ Apuntar Cita Manual</span>
+      </button>
+    </div>
+
+    <!-- Lista de Citas -->
+    <div class="space-y-4">
+      <div class="flex justify-between items-center">
+        <h3 class="text-lg font-bold text-white font-heading">Listado de Reservas</h3>
+        <span class="text-xs text-slate-400 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-violet-400 animate-pulse"></span>
+          Sincronizado con Chat IA + n8n
+        </span>
+      </div>
+
+      <div id="appointments-container" class="space-y-3">
+        <!-- Render dinámico aquí -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modal para Nueva Cita Manual -->
+  <div id="manual-apt-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-slate-900 border border-amber-500/40 rounded-3xl max-w-lg w-full p-6 text-slate-200 shadow-2xl">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="font-heading text-lg font-bold text-amber-300">✂️ Apuntar Cita Manual</h3>
+        <button id="close-manual-apt-btn" class="text-slate-400 hover:text-white text-2xl">&times;</button>
+      </div>
+      <p class="text-xs text-slate-400 mb-4">Añade una cita para clientes que llegan al local o llaman por teléfono.</p>
+
+      <form id="manual-apt-form" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Nombre del Cliente *</label>
+          <input type="text" id="manual-name" required placeholder="Ej: Marcos Pérez" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-slate-100 focus:outline-none focus:border-amber-400">
+        </div>
+
+        <div>
+          <label class="block font-semibold text-slate-300 mb-1">Teléfono</label>
+          <input type="tel" id="manual-phone" placeholder="Ej: +34 611 223 344" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-slate-100 focus:outline-none focus:border-amber-400">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Servicio *</label>
+            <select id="manual-service" required class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-slate-100 focus:outline-none focus:border-amber-400">
+              <option value="Corte Clásico / Fade">Corte Clásico / Fade (12 €)</option>
+              <option value="Corte + Barba La Élite">Corte + Barba (18 €)</option>
+              <option value="Tinte & Colorimetría">Tinte (25 €)</option>
+              <option value="Mechas Platinum">Mechas (30 €)</option>
+              <option value="Arreglo de Barba">Arreglo Barba (8 €)</option>
+              <option value="Lavado & Peinado">Lavado & Peinado (6 €)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Precio Cobrado (€)</label>
+            <input type="number" id="manual-price" value="12" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-slate-100 focus:outline-none focus:border-amber-400">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Fecha *</label>
+            <input type="date" id="manual-date" required class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-slate-100 focus:outline-none focus:border-amber-400">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-300 mb-1">Hora *</label>
+            <input type="time" id="manual-time" value="11:00" required class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-slate-100 focus:outline-none focus:border-amber-400">
+          </div>
+        </div>
+
+        <div class="flex justify-end gap-2 pt-3 border-t border-slate-800">
+          <button type="submit" class="btn-gold px-5 py-3 rounded-xl font-bold text-xs">
+            Guardar Cita en Mi Agenda
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="auth.js"></script>
+  <script src="barber-panel.js"></script>
+</body>
+</html>
+

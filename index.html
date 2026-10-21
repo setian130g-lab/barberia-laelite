@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Barbería La Élite | Orihuela, Alicante | Cortes, Degradados, Tintes y Mechas</title>
+  <meta name="description" content="Barbería La Élite en Calle Ronda de Santo Domingo 53, Orihuela. Cortes desde 12€, degradados, tintes, mechas y arreglo de barba con Deison y Juan Pablo.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Cinzel + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon Oficial -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Estilos Custom -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            elite: {
+              gold: '#D4AF37',
+              goldLight: '#F3E5AB',
+              goldDark: '#AA7C11',
+              dark: '#080C14',
+              card: '#0F1626',
+              border: '#1F293D'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#080c14] text-slate-200 antialiased selection:bg-amber-500 selection:text-black">
+
+  <!-- Top Announcement Bar (Responsive) -->
+  <div class="bg-gradient-to-r from-amber-600/20 via-amber-500/30 to-amber-600/20 border-b border-amber-500/30 text-xs py-2 px-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-4 text-amber-200 text-[11px] sm:text-xs">
+        <span class="flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-amber-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+          Calle Ronda de Santo Domingo 53, Orihuela
+        </span>
+        <span class="hidden md:inline text-amber-500/60">•</span>
+        <span class="hidden md:flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-amber-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+          Lun - Sáb: 09:00 a 22:00 h
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <!-- Social Links Top -->
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-amber-300 hover:text-white transition-colors" title="Instagram">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-amber-300 hover:text-white transition-colors" title="Facebook">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.7 5H18V0h-3.808C10.595 0 9 1.583 9 4.615V8z"/></svg>
+        </a>
+        <a href="login.html" class="text-[11px] sm:text-xs bg-slate-900 hover:bg-slate-800 text-amber-300 border border-amber-500/40 px-2 sm:px-2.5 py-1 rounded-md transition-all flex items-center gap-1">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          <span>Área Barberos</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar Principal -->
+  <header class="sticky top-0 z-30 bg-[#080c14]/95 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo de la Barbería -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-amber-500/50 shadow-lg shadow-amber-500/20 group-hover:border-amber-400 group-hover:scale-105 transition-all bg-black flex-shrink-0">
+          <img 
+            id="brand-logo"
+            src="logo.png" 
+            alt="Logo Barbería La Élite" 
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div>
+          <span class="block text-lg sm:text-xl font-extrabold tracking-wider font-heading text-slate-100 group-hover:text-amber-400 transition-colors">
+            LA ÉLITE
+          </span>
+          <span class="block text-[9px] sm:text-[10px] tracking-[0.25em] text-amber-400 font-semibold uppercase">
+            Barbershop • Orihuela
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav con Páginas Dedicadas -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="index.html" class="text-amber-400 font-bold border-b-2 border-amber-400 pb-1">Inicio</a>
+        <a href="servicios.html" class="hover:text-amber-400 transition-colors pb-1">Servicios & Tarifas</a>
+        <a href="barberos.html" class="hover:text-amber-400 transition-colors pb-1">Nuestros Barberos</a>
+        <a href="galeria.html" class="hover:text-amber-400 transition-colors pb-1">Galería</a>
+        <a href="contacto.html" class="hover:text-amber-400 transition-colors pb-1">Ubicación & Horario</a>
+      </nav>
+
+      <!-- CTA Botón -->
+      <div class="hidden sm:flex items-center gap-3">
+        <button onclick="window.eliteChat?.toggleChat(true)" class="btn-gold px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold tracking-wide flex items-center gap-2 shadow-lg">
+          <span>✨ Agendar con IA</span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" aria-label="Abrir Menú" class="lg:hidden p-2 text-slate-300 hover:text-amber-400 focus:outline-none">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-[#0c121e] border-b border-amber-500/20 px-5 py-5 space-y-3 shadow-2xl transition-all">
+      <a href="index.html" class="block font-bold text-amber-400 bg-amber-500/10 px-3 py-2 rounded-lg">Inicio</a>
+      <a href="servicios.html" class="block text-slate-300 hover:text-amber-400 px-3 py-2 rounded-lg hover:bg-slate-800">Servicios & Tarifas</a>
+      <a href="barberos.html" class="block text-slate-300 hover:text-amber-400 px-3 py-2 rounded-lg hover:bg-slate-800">Nuestros Barberos (Deison & Juan Pablo)</a>
+      <a href="galeria.html" class="block text-slate-300 hover:text-amber-400 px-3 py-2 rounded-lg hover:bg-slate-800">Galería de Trabajos</a>
+      <a href="contacto.html" class="block text-slate-300 hover:text-amber-400 px-3 py-2 rounded-lg hover:bg-slate-800">Ubicación, Horario & Contacto</a>
+      
+      <div class="pt-3 border-t border-slate-800 flex flex-col gap-2.5">
+        <button onclick="window.eliteChat?.toggleChat(true); document.getElementById('mobile-menu').classList.add('hidden');" class="btn-gold w-full py-3 rounded-xl text-sm font-bold text-center">
+          ✨ Agendar Cita con IA
+        </button>
+        <a href="login.html" class="text-center text-xs text-amber-300 py-2.5 bg-slate-900 border border-slate-700 rounded-xl">
+          🔒 Acceso Barberos (Deison / Juan Pablo)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section con Video de Fondo (Full Background Video) -->
+  <section class="relative min-h-[85vh] sm:min-h-[88vh] flex items-center justify-center overflow-hidden py-14 sm:py-20">
+    
+    <!-- Video de Fondo en Bucle Autoplay -->
+    <video 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      preload="auto"
+      poster="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1200&q=80"
+      class="absolute inset-0 w-full h-full object-cover object-center z-0 filter brightness-[0.65] contrast-110"
+    >
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+
+    <!-- Overlay cinematográfico oscuro para máxima legibilidad de los textos -->
+    <div class="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/75 to-[#080c14]/65 z-0"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.12)_0,transparent_75%)] z-0 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/80 border border-amber-500/40 text-amber-300 text-[11px] sm:text-xs font-semibold uppercase tracking-wider backdrop-blur-md shadow-lg">
+            <span>💈 Calle Ronda de Santo Domingo 53, Orihuela</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight text-white leading-tight drop-shadow-2xl">
+            DONDE EL ESTILO Y LA PRECISIÓN SE VUELVEN <span class="gold-gradient-text">ÉLITE</span>
+          </h1>
+
+          <p class="text-sm sm:text-base lg:text-lg text-slate-200 max-w-2xl leading-relaxed mx-auto lg:mx-0 drop-shadow-md">
+            Cortes clásicos y degradados modernos por <strong>12 €</strong>. Además, servicios expertos de tinte, mechas platinum y arreglo de barba tradicional con <strong>Deison</strong> y <strong>Juan Pablo</strong>.
+          </p>
+
+          <!-- Badges de información rápida con efecto Glassmorphism -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-2 max-w-lg mx-auto lg:mx-0">
+            <div class="bg-slate-950/80 backdrop-blur-md border border-slate-800/90 p-3 rounded-xl text-center shadow-lg">
+              <span class="block text-[11px] text-amber-400 font-semibold uppercase">Cortes</span>
+              <strong class="text-base sm:text-lg text-white font-extrabold">12 €</strong>
+            </div>
+            <div class="bg-slate-950/80 backdrop-blur-md border border-slate-800/90 p-3 rounded-xl text-center shadow-lg">
+              <span class="block text-[11px] text-amber-400 font-semibold uppercase">Horario</span>
+              <strong class="text-xs sm:text-sm text-slate-200 font-bold">Lun-Sáb 9 a 22h</strong>
+            </div>
+            <div class="col-span-2 sm:col-span-1 bg-slate-950/80 backdrop-blur-md border border-slate-800/90 p-3 rounded-xl text-center shadow-lg">
+              <span class="block text-[11px] text-emerald-400 font-semibold uppercase">Reserva IA</span>
+              <strong class="text-xs sm:text-sm text-slate-200 font-bold">Chat 24/7</strong>
+            </div>
+          </div>
+
+          <!-- Botones de Acción -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-3">
+            <button onclick="window.eliteChat?.toggleChat(true)" class="btn-gold w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-2xl shadow-amber-500/30">
+              <svg class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span>Agendar con Asistente IA</span>
+            </button>
+            <a href="servicios.html" class="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-xl bg-slate-950/80 hover:bg-slate-900 text-slate-200 border border-slate-700 font-semibold text-xs sm:text-sm text-center transition-all backdrop-blur-md">
+              Ver Servicios y Tarifas →
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta Flotante Destacada sobre el video -->
+        <div class="lg:col-span-5 relative mt-4 lg:mt-0">
+          <div class="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none rounded-3xl p-6 sm:p-8 bg-slate-950/85 backdrop-blur-xl border border-amber-500/40 gold-border-glow shadow-2xl space-y-6">
+            
+            <div class="flex items-center gap-4 pb-4 border-b border-slate-800">
+              <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-amber-500/60 bg-black flex-shrink-0 shadow-xl">
+                <img src="logo.png" alt="Logo La Élite" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <span class="text-[10px] tracking-widest text-amber-400 font-bold uppercase block">Barbería Oficial</span>
+                <h3 class="font-heading font-extrabold text-xl text-white">LA ÉLITE</h3>
+                <p class="text-xs text-slate-400">Calle Ronda de Santo Domingo 53</p>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-xs text-slate-300">
+              <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-base">💈</span>
+                  <div>
+                    <strong class="text-white block">Deison</strong>
+                    <span class="text-[11px] text-amber-400">Master Barber & Fades</span>
+                  </div>
+                </div>
+                <button onclick="window.eliteChat?.openWithAction('book_barber', 'deison')" class="text-[11px] font-bold bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-black border border-amber-500/40 px-2.5 py-1 rounded-lg transition-all">
+                  Reservar
+                </button>
+              </div>
+
+              <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/80 border border-slate-800">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-base">✂️</span>
+                  <div>
+                    <strong class="text-white block">Juan Pablo</strong>
+                    <span class="text-[11px] text-amber-400">Tijera & Colorimetría</span>
+                  </div>
+                </div>
+                <button onclick="window.eliteChat?.openWithAction('book_barber', 'juanpablo')" class="text-[11px] font-bold bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-black border border-amber-500/40 px-2.5 py-1 rounded-lg transition-all">
+                  Reservar
+                </button>
+              </div>
+            </div>
+
+            <div class="pt-2 flex items-center justify-between text-xs text-slate-400">
+              <span class="flex items-center gap-1.5 text-emerald-400 font-semibold">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Abierto Lun - Sáb (9 a 22h)
+              </span>
+              <span class="text-amber-400 font-bold font-mono">12 € / corte</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Accesos Directos a las Páginas Dedicadas (Grid Rápido) -->
+  <section class="py-12 bg-[#090e18] border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <span class="text-xs font-bold text-amber-400 tracking-[0.2em] uppercase">Explora Nuestra Web</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-white mt-1">TODO LO QUE NECESITAS EN LA ÉLITE</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <!-- Tarjeta 1: Servicios & Tarifas -->
+        <a href="servicios.html" class="relative rounded-2xl overflow-hidden border border-amber-500/30 hover:border-amber-400 transition-all duration-500 group flex flex-col justify-between p-6 min-h-[270px] shadow-2xl">
+          <!-- Foto de fondo -->
+          <img 
+            src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=700&q=80" 
+            alt="Servicios y Tarifas La Élite" 
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+          <!-- Gradiente oscuro para contraste y legibilidad -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/85 to-[#080c14]/55 group-hover:via-[#080c14]/75 transition-colors"></div>
+
+          <!-- Contenido -->
+          <div class="relative z-10">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-black transition-all shadow-lg backdrop-blur-sm">
+              ✂️
+            </div>
+            <h3 class="font-heading font-bold text-xl text-white mb-2 group-hover:text-amber-300 transition-colors">Servicios & Tarifas</h3>
+            <p class="text-xs text-slate-300 leading-relaxed font-medium">
+              Cortes desde 12€, tintes, mechas platinum, combos con barba y tratamientos completos.
+            </p>
+          </div>
+          <div class="relative z-10 mt-6 pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs font-bold text-amber-400 group-hover:text-amber-300">
+            <span>Ver carta completa</span>
+            <span class="transform group-hover:translate-x-1.5 transition-transform text-sm">→</span>
+          </div>
+        </a>
+
+        <!-- Tarjeta 2: Nuestros Barberos -->
+        <a href="barberos.html" class="relative rounded-2xl overflow-hidden border border-amber-500/30 hover:border-amber-400 transition-all duration-500 group flex flex-col justify-between p-6 min-h-[270px] shadow-2xl">
+          <!-- Foto de fondo -->
+          <img 
+            src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=700&q=80" 
+            alt="Nuestros Barberos Deison y Juan Pablo" 
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+          <!-- Gradiente oscuro -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/85 to-[#080c14]/55 group-hover:via-[#080c14]/75 transition-colors"></div>
+
+          <!-- Contenido -->
+          <div class="relative z-10">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-black transition-all shadow-lg backdrop-blur-sm">
+              💈
+            </div>
+            <h3 class="font-heading font-bold text-xl text-white mb-2 group-hover:text-amber-300 transition-colors">Nuestros Barberos</h3>
+            <p class="text-xs text-slate-300 leading-relaxed font-medium">
+              Conoce a Deison y Juan Pablo: especialidades en degradados, barbas y colorimetría.
+            </p>
+          </div>
+          <div class="relative z-10 mt-6 pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs font-bold text-amber-400 group-hover:text-amber-300">
+            <span>Conocer a Deison & Juan Pablo</span>
+            <span class="transform group-hover:translate-x-1.5 transition-transform text-sm">→</span>
+          </div>
+        </a>
+
+        <!-- Tarjeta 3: Galería de Estilos -->
+        <a href="galeria.html" class="relative rounded-2xl overflow-hidden border border-amber-500/30 hover:border-amber-400 transition-all duration-500 group flex flex-col justify-between p-6 min-h-[270px] shadow-2xl">
+          <!-- Foto de fondo -->
+          <img 
+            src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=700&q=80" 
+            alt="Galería de Estilos y Cortes" 
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+          <!-- Gradiente oscuro -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/85 to-[#080c14]/55 group-hover:via-[#080c14]/75 transition-colors"></div>
+
+          <!-- Contenido -->
+          <div class="relative z-10">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-black transition-all shadow-lg backdrop-blur-sm">
+              📸
+            </div>
+            <h3 class="font-heading font-bold text-xl text-white mb-2 group-hover:text-amber-300 transition-colors">Galería de Estilos</h3>
+            <p class="text-xs text-slate-300 leading-relaxed font-medium">
+              Portafolio real de cortes, fades degradados, barbas a navaja y mechas platinum.
+            </p>
+          </div>
+          <div class="relative z-10 mt-6 pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs font-bold text-amber-400 group-hover:text-amber-300">
+            <span>Ver galería completa</span>
+            <span class="transform group-hover:translate-x-1.5 transition-transform text-sm">→</span>
+          </div>
+        </a>
+
+        <!-- Tarjeta 4: Ubicación & Contacto -->
+        <a href="contacto.html" class="relative rounded-2xl overflow-hidden border border-amber-500/30 hover:border-amber-400 transition-all duration-500 group flex flex-col justify-between p-6 min-h-[270px] shadow-2xl">
+          <!-- Foto de fondo -->
+          <img 
+            src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=700&q=80" 
+            alt="Ubicación y Local Barbería La Élite" 
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+          <!-- Gradiente oscuro -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/85 to-[#080c14]/55 group-hover:via-[#080c14]/75 transition-colors"></div>
+
+          <!-- Contenido -->
+          <div class="relative z-10">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-black transition-all shadow-lg backdrop-blur-sm">
+              📍
+            </div>
+            <h3 class="font-heading font-bold text-xl text-white mb-2 group-hover:text-amber-300 transition-colors">Ubicación & Contacto</h3>
+            <p class="text-xs text-slate-300 leading-relaxed font-medium">
+              Calle Ronda de Santo Domingo 53, mapa interactivo GPS y WhatsApp directo.
+            </p>
+          </div>
+          <div class="relative z-10 mt-6 pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs font-bold text-amber-400 group-hover:text-amber-300">
+            <span>Ver mapa y horarios</span>
+            <span class="transform group-hover:translate-x-1.5 transition-transform text-sm">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Responsivo Unificado -->
+  <footer class="bg-slate-950 border-t border-slate-800/80 pt-12 pb-10 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full overflow-hidden border border-amber-500/40 bg-black flex-shrink-0 shadow-md">
+              <img src="logo.png" alt="Logo La Élite" class="w-full h-full object-cover">
+            </div>
+            <span class="font-heading font-extrabold text-base text-white tracking-wider">BARBERÍA LA ÉLITE</span>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Calle Ronda de Santo Domingo 53, Orihuela (Alicante). Cortes a 12€, tintes, mechas y cuidado masculino.
+          </p>
+          <p class="text-amber-400 text-[11px] font-semibold">
+            Barberos: Deison & Juan Pablo
+          </p>
+        </div>
+
+        <div>
+          <h5 class="text-white font-bold text-xs uppercase tracking-wider mb-3 font-heading">Páginas de la Web</h5>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html" class="hover:text-amber-300">Inicio</a></li>
+            <li><a href="servicios.html" class="hover:text-amber-300">Servicios & Tarifas</a></li>
+            <li><a href="barberos.html" class="hover:text-amber-300">Nuestros Barberos</a></li>
+            <li><a href="galeria.html" class="hover:text-amber-300">Galería de Trabajos</a></li>
+            <li><a href="contacto.html" class="hover:text-amber-300">Ubicación & Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-white font-bold text-xs uppercase tracking-wider mb-3 font-heading">Redes Sociales</h5>
+          <ul class="space-y-2 text-xs">
+            <li><a href="https://instagram.com" target="_blank" class="hover:text-amber-300">Instagram Oficial</a></li>
+            <li><a href="https://facebook.com" target="_blank" class="hover:text-amber-300">Facebook Oficial</a></li>
+            <li><a href="https://wa.me/34600000000" target="_blank" class="hover:text-amber-300">WhatsApp Directo</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-white font-bold text-xs uppercase tracking-wider mb-3 font-heading">Acceso de Personal</h5>
+          <p class="text-slate-400 text-xs mb-3">Portal para Deison y Juan Pablo.</p>
+          <a href="login.html" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-300 border border-amber-500/40 font-semibold transition-all text-xs">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            <span>Iniciar Sesión Barbero</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500 text-center sm:text-left">
+        <p>© 2026 Barbería La Élite - Calle Ronda de Santo Domingo 53, Orihuela. Todos los derechos reservados.</p>
+        <p class="text-amber-400/80">Automatizado con n8n & Asistente IA para Citas</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts Globales (Almacenamiento y Chat IA en todas las páginas) -->
+  <script src="app.js"></script>
+  <script src="chat-ia.js"></script>
+  
+  <script>
+    // Toggle Mobile Menu
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
+
